@@ -10,4 +10,7 @@ public interface UserService {
     List<UserDto> getAllUser();
 
     UserEntity upsertUser(UserDto userDtos);
+    UserEntity newUser (UserDto userDtos);
+
+    UserEntity softDeleteUser(String id);
 }

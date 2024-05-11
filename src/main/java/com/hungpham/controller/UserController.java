@@ -11,8 +11,19 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserService userService;
-    @PostMapping("/upsert-user")
-    public UserEntity upsertUser(@RequestBody UserDto userDtos) {
+    @PostMapping("/new-user")
+    public UserEntity newUser(@RequestBody UserDto userDtos) {
+        return userService.newUser(userDtos);
+    }
+
+    @PutMapping("/update-user")
+    public UserEntity updatetUser(@RequestBody UserDto userDtos) {
         return userService.upsertUser(userDtos);
     }
+
+    @DeleteMapping
+    public UserEntity softDeletedUser(@RequestBody String id) {
+        return userService.softDeleteUser(id);
+    }
+
 }

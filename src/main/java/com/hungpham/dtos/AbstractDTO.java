@@ -1,25 +1,11 @@
-package com.hungpham.entity;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+package com.hungpham.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
 
-@MappedSuperclass
-public abstract class baseEntity {
-    @Id
-    @Column(name = "ID")
+public abstract class AbstractDTO<T> {
     private String id;
-
-    @Column(name = "created_date")
-    @CreatedDate
     private Date createdDate;
-
-    @Column(name = "updated_date")
-    @LastModifiedDate
     private Date updatedDate;
 
     public String getId() {
