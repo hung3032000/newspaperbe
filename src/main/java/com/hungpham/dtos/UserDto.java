@@ -1,13 +1,13 @@
 package com.hungpham.dtos;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import com.hungpham.common.enums.RoleEnum;
+
 
 public class UserDto extends AbstractDTO<UserDto>{
     private String userName;
     private String password;
-    private String role;
+    private RoleEnum role;
 
     private boolean status;
 
@@ -27,13 +27,6 @@ public class UserDto extends AbstractDTO<UserDto>{
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public boolean isStatus() {
         return status;
@@ -42,4 +35,21 @@ public class UserDto extends AbstractDTO<UserDto>{
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    public RoleEnum getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEnum role) {
+        this.role = role;
+    }
+
+
+//    public String getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 }

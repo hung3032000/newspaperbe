@@ -1,15 +1,11 @@
 package com.hungpham.dtos;
 
-import com.hungpham.entity.CategoryEntity;
-import com.hungpham.entity.UserEntity;
-
-
 public class NewsDto extends AbstractDTO<NewsDto>{
     private String title;
-    private CategoryEntity category;
+    private String categoryName;
     private String content;
     private String shortDescription;
-    private UserEntity author;
+    private String author;
     private Boolean deleteFlag;
 
     public String getTitle() {
@@ -20,13 +16,7 @@ public class NewsDto extends AbstractDTO<NewsDto>{
         this.title = title;
     }
 
-    public CategoryEntity getCategory() {
-        return category;
-    }
 
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
 
     public String getContent() {
         return content;
@@ -44,19 +34,27 @@ public class NewsDto extends AbstractDTO<NewsDto>{
         this.shortDescription = shortDescription;
     }
 
-    public UserEntity getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(UserEntity author) {
-        this.author = author;
-    }
-
     public Boolean getDeleteFlag() {
         return deleteFlag;
     }
 
     public void setDeleteFlag(Boolean deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

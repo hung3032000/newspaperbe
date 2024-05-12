@@ -1,12 +1,8 @@
 package com.hungpham.entity;
 
-import lombok.*;
+import com.hungpham.common.enums.RoleEnum;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-
+import javax.persistence.*;
 
 
 @Entity
@@ -19,7 +15,8 @@ public class UserEntity extends baseEntity{
     private String password;
 
     @Column(name = "role")
-    private String role;
+    @Enumerated(value = EnumType.STRING)
+    private RoleEnum role;
 
     @Column(name = "status")
     private boolean status;
@@ -41,13 +38,22 @@ public class UserEntity extends baseEntity{
         this.password = password;
     }
 
-    public String getRole() {
+    public RoleEnum getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(RoleEnum role) {
         this.role = role;
     }
+
+
+//    public String getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 
     public boolean isStatus() {
         return status;
