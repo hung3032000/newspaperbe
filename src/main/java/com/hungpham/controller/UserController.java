@@ -6,6 +6,8 @@ import com.hungpham.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("admin")
 public class UserController {
@@ -18,12 +20,25 @@ public class UserController {
 
     @PutMapping("/update-user")
     public UserEntity updatetUser(@RequestBody UserDto userDtos) {
-        return userService.upsertUser(userDtos);
+        return userService.updateUser(userDtos);
     }
 
     @DeleteMapping
     public UserEntity softDeletedUser(@RequestBody String id) {
         return userService.softDeleteUser(id);
     }
+
+    @GetMapping("/get-all")
+    public List<UserDto> getAllUser(){
+        return userService.getAllUser();
+    }
+
+    @GetMapping("/get")
+    public UserDto getUserById(@RequestBody String id){
+        return userService.getUserById(id);
+    }
+
+
+
 
 }

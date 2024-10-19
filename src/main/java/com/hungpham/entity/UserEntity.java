@@ -47,14 +47,6 @@ public class UserEntity extends baseEntity{
     }
 
 
-//    public String getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(String role) {
-//        this.role = role;
-//    }
-
     public boolean isStatus() {
         return status;
     }

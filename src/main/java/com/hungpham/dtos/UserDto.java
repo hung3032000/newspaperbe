@@ -4,7 +4,7 @@ package com.hungpham.dtos;
 import com.hungpham.common.enums.RoleEnum;
 
 
-public class UserDto extends AbstractDTO<UserDto>{
+public class UserDto extends AbstractDto<UserDto> {
     private String userName;
     private String password;
     private RoleEnum role;

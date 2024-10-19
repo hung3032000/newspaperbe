@@ -1,6 +1,6 @@
 package com.hungpham.dtos;
 
-public class NewsDto extends AbstractDTO<NewsDto>{
+public class NewsDto extends AbstractDto<NewsDto> {
     private String title;
     private String categoryName;
     private String content;

@@ -3,7 +3,7 @@ package com.hungpham.dtos;
 import java.util.Date;
 
 
-public abstract class AbstractDTO<T> {
+public abstract class AbstractDto<T> {
     private String id;
     private Date createdDate;
     private Date updatedDate;

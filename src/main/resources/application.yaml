@@ -9,7 +9,12 @@ spring:
       ddl-auto:none
     show-sql: true
   datasource:
-    url: jdbc:mysql://o8e.h.filess.io:3307/newspaper_labelpoint
-    username: newspaper_labelpoint
-    password: 93d47ed7621da4a7c081d658a14d59f17ee67c62
+#    Host
+#    url: jdbc:mysql://o8e.h.filess.io:3307/newspaper_labelpoint
+#    username: newspaper_labelpoint
+#    password: 93d47ed7621da4a7c081d658a14d59f17ee67c62
+#    Local
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/newspaper
+    username: root
+    password: hung2000
     driver-class-name: com.mysql.cj.jdbc.Driver

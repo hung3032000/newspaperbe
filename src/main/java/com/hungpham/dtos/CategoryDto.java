@@ -1,6 +1,6 @@
 package com.hungpham.dtos;
 
-public class CategoryDto extends AbstractDTO<CategoryDto>{
+public class CategoryDto extends AbstractDto<CategoryDto> {
     private String categoryName;
     private boolean deleteFlag;
 

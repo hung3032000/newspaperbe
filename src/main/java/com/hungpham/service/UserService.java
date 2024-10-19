@@ -8,9 +8,8 @@ import java.util.List;
 
 public interface UserService {
     List<UserDto> getAllUser();
-
-    UserEntity upsertUser(UserDto userDtos);
+    UserDto getUserById(String id);
+    UserEntity updateUser(UserDto userDtos);
     UserEntity newUser (UserDto userDtos);
-
     UserEntity softDeleteUser(String id);
 }
