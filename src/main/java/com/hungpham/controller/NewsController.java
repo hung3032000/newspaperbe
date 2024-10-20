@@ -20,12 +20,12 @@ public class NewsController {
     }
 
     @GetMapping("/get-by-id")
-    public NewsEntity getNewsById(@RequestBody String id) {
+    public NewsEntity getNewsById(@RequestParam String id) {
         return newsService.getNewsById(id);
     }
 
     @GetMapping("/get-all-by-author")
-    public List<NewsEntity> getNewsByAuthor(@RequestBody String author) {
+    public List<NewsEntity> getNewsByAuthor(@RequestParam String author) {
         return newsService.getNewsByAuthor(author);
     }
 
@@ -40,7 +40,7 @@ public class NewsController {
     }
 
     @DeleteMapping
-    public NewsEntity deleteNew(@RequestBody String id){
+    public NewsEntity deleteNew(@RequestParam String id){
        return newsService.deleteNew(id);
     }
 }

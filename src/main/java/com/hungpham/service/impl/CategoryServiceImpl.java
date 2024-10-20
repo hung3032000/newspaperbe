@@ -2,6 +2,7 @@ package com.hungpham.service.impl;
 
 import com.hungpham.common.exception.BadRequestException;
 import com.hungpham.dtos.CategoryDto;
+import com.hungpham.dtos.UserDto;
 import com.hungpham.entity.CategoryEntity;
 import com.hungpham.mappers.CategoryMapper;
 import com.hungpham.repository.CategoriesRepository;
@@ -41,6 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryEntity createCategory(CategoryDto categoryDto) {
+        checkDuplicateCategory(categoryDto);
         UUID uuid = UUID.randomUUID();
         categoryDto.setId(String.valueOf(uuid));
         categoryDto.setCreatedDate(new Date());
@@ -56,7 +58,7 @@ public class CategoryServiceImpl implements CategoryService {
             throw new BadRequestException("Not found category id to update");
         }
         CategoryEntity categoryEntity = categoriesRepository.findById(categoryDto.getId()).orElseThrow(
-                ()-> new EntityNotFoundException("News not found " + categoryDto.getId()));
+                ()-> new EntityNotFoundException("Category not found " + categoryDto.getId()));
         logger.info("Category data is {}", categoryDto);
         categoryDto.setCreatedDate(categoryEntity.getCreatedDate());
         categoryDto.setUpdatedDate(new Date());
@@ -72,5 +74,13 @@ public class CategoryServiceImpl implements CategoryService {
         categoryEntity.setDeleteFlag(true);
         categoryEntity.setUpdatedDate(new Date());
         return categoriesRepository.save(categoryEntity);
+    }
+
+    private void checkDuplicateCategory(CategoryDto categoryDto){
+        int existFlag = categoriesRepository.countByCategoryName(categoryDto.getCategoryName());
+        logger.info("Category check: {}. Flag is {}", categoryDto.getCategoryName(), existFlag);
+        if (existFlag != 0){
+            throw new BadRequestException("This category is already exist");
+        }
     }
 }

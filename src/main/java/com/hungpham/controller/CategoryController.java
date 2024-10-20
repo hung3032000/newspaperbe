@@ -36,7 +36,7 @@ public class CategoryController {
     }
 
     @DeleteMapping
-    public CategoryEntity deleteCategory(@RequestBody String id){
+    public CategoryEntity deleteCategory(@RequestParam String id){
         return categoryService.deleteCategory(id);
     }
 }
