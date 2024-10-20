@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("/get")
-    public UserDto getUserById(@RequestBody String id){
+    public UserDto getUserById(@RequestParam String id){
         return userService.getUserById(id);
     }
 

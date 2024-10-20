@@ -8,4 +8,6 @@ import java.util.Optional;
 
 public interface CategoriesRepository extends JpaRepository<CategoryEntity, String> {
     Optional<CategoryEntity> findByCategoryName(String categoryName);
+
+    int countByCategoryName(String CategoryName);
 }
